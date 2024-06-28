@@ -209,5 +209,23 @@ def main():
         invent[x].update(q)
 
         return print(f'The count of {x} has been updated succesfully')
+    
+
+    def display_inventory():
+        dikeys=list(invent.keys())
+
+        from prettytable import PrettyTable
+        table = PrettyTable()
+        table.field_names = ["Name", "Price", "Count"]  # Add columns
+
+        for i in dikeys:
+            g=invent[i]['Price']
+            h=invent[i]['Count']
+
+            # Add rows
+            table.add_row([i, g, h])
+
+        return print(table,"\n","Total Sales : ",total_sales)
+
 
 
