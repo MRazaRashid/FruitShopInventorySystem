@@ -95,4 +95,61 @@ def main():
         print()
         return print(f'{ni} has been added to the Inventory successfully.')
 
+    def buy_item():
+        global total_sales
+        x=input('Please write what iten you are looking for ')
+        x=x.title()
+        ditkey=list(invent.keys()) 
+        ditskey=[]
+        for i in ditkey:
+            i=i.title()
+            ditskey.append(i)
+
+        
+        while(x not in ditskey):
+            print('This Item not available!')
+            j=input(('Enter "exit" or to rewrite, press "Enter":  '))
+            j=j.lower()
+            if (j=="exit"):
+                print('Ok bye!')
+                exit()
+            else:
+                x=input('Again tell what you want to get: ')
+                x=x.title()
+                
+        if (x=="Banana"or x=="Orange"):
+            r=int(input('Please enter quantity in Dozen: '))
+        else:
+            r=int(input('Please enter quantity of KGs: '))
+
+        item_price=invent[x]['Price']
+        y=invent[x]["Count"]
+        gen_sales= item_price * r
+        
+        while(r>=y):
+            print('This much stock is not available.')
+            print('Please try with lower quantity')
+            print()
+
+            p=input(('Enter "exit" or to continue press "Enter":  '))
+            p=p.lower()
+            if (p=="exit"):
+                print('Ok bye!')
+                exit()
+            else:        
+                r=int(input('Again enter quantity of item: '))
+                continue
+
+        else:
+            print()
+            print(f'The total is {round(gen_sales)}')
+            print(f'{x.capitalize()} bought succesfully!')
+            
+            print()
+            total_sales=total_sales + gen_sales
+            y-=r
+            r= {'Count': y}
+            invent[x].update(r)
+            return print('Thanks for your purchase')
+
 
