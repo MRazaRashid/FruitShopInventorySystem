@@ -47,3 +47,52 @@ count of existing items.
 
 20. Add a final commit to GitHub with any refinements and the completed project.'''
 
+
+total_sales = 0
+
+invent={
+    "Apple":    {"Price":150, "Count":100},   #[price,count]
+    "Banana":   {"Price":180.30, "Count":150},
+    "Orange":   {"Price":90.60, "Count": 80},
+    "Pear":     {"Price":100, "Count": 50},
+    "Apricot":  {"Price":55, "Count": 230},
+    "Dates":    {"Price":670, "Count": 450},
+    "Plum":     {"Price":120, "Count": 33},
+    "Fig":      {"Price":98.76, "Count": 10},
+    "Coconut":  {"Price":100, "Count": 10}
+}
+ 
+
+def main():
+    print('\033[1mWelcome to the Fruit Shop Inventory Management System\033[0m')
+    print()
+
+    def add_item():
+        #{newITEM : {price: xxx , count : xxx}}
+        KEYS=list(invent.keys())
+        new_item =input("Please write the new item you would like to add to the inventory.  ")
+        while(True):
+            ni=new_item.title()
+            if ni in KEYS:
+                print(f'{ni} already exists in the inventory')
+                new_item =input("Please Re-write the new item you would like to add to the inventory.  ") 
+                continue         
+            else:
+                break
+
+
+        pri=float(input("Enter new item's price: "))
+        coun=int(input("Enter new item's count: "))
+                                            # Method 1
+        
+        # d={}                   
+        # d["Price"]=pri
+        # d["Count"]=coun
+        # invent[ni]=d
+                                            # Method 2
+
+        invent[ni]={"Price":pri, "Count":coun}
+        print()
+        return print(f'{ni} has been added to the Inventory successfully.')
+
+
