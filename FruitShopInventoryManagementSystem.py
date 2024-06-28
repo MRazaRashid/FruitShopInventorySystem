@@ -227,5 +227,41 @@ def main():
 
         return print(table,"\n","Total Sales : ",total_sales)
 
+    print('\033[1mWelcome to the Fruit Shop Inventory Management System\033[0m')
+    print()
+
+    print('➡️',' If you like to add a new item to the inventory. Press "1"')
+    print('➡️',' To make a purchase from the inventory. Press "2"')
+    print('➡️',' Want to adjust the price of an existing item. Press "3"')
+    print('➡️',' If you like to update the stock count for an item. Press "4"')
+    print()
+    print('➡️',' To see your current Inventory Stock. Press "5"')
+    while(True):
+        try:
+            customer_select=int(input('Please tell us what would you like to do '))
+            print()
+            break
+        except ValueError:
+            print("Input does not seems like number. Please enter number from 1 to 5.")
+            z=input('If you want to exit please write "exit" or to continue press "enter" button ')
+            z=z.lower()
+            if (z=="exit"):
+                exit()
+            else:
+                print()
+                continue
+
+
+    if customer_select==1:
+        add_item()
+    if customer_select==2:
+        buy_item()
+    if customer_select==3:
+        change_price()
+    if customer_select==4:
+        update_inventory()
+    if customer_select==5:
+        display_inventory()
+    print('Thanks')
 
 
