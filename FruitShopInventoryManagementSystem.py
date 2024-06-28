@@ -180,5 +180,34 @@ def main():
         invent[x].update(q)
 
         return print(f'The price of {x} has been updated succesfully')
+    
+    def update_inventory():
+        x=input('Please write the name of item in order to update the stock :  ')
+        x=x.title()
+        ditkey=list(invent.keys()) 
+        ditskey=[]
+        for i in ditkey:
+            i=i.title()
+            ditskey.append(i)
+        
+        
+        while(x not in ditkey):
+            print('Unable to find this item')
+            j=input(('To continue, press "Enter" to rewrite or you can write "exit" to skip:  '))
+            j=j.lower()
+            if (j=="exit"):
+                print('Thanks for your time !')
+                exit()
+            else:
+                x=input('Please write the correct item ')
+                x=x.title()
+        a=invent[x]['Count']
+        print('Current Count of',x, 'is',a)
+        upd_count=int(input('New Updated Count : '))
+        
+        q={"Count":upd_count}
+        invent[x].update(q)
+
+        return print(f'The count of {x} has been updated succesfully')
 
 
