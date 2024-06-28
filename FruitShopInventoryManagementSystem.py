@@ -151,5 +151,34 @@ def main():
             r= {'Count': y}
             invent[x].update(r)
             return print('Thanks for your purchase')
+        
+    def change_price():
+
+        x=input('Please write the name of item you want to update the price   ')
+        x=x.title()
+        ditkey=list(invent.keys())
+        ditskey=[]
+        for i in ditkey:
+            i=i.title()
+            ditskey.append(i)
+        
+        
+        while(x not in ditkey):
+            print('Unable to find this item')
+            j=input(('To continue, press "Enter" to rewrite or you can write "exit" to skip:  '))
+            j=j.lower()
+            if (j=="exit"):
+                print('Thanks for your time !')
+                exit()
+            else:
+                x=input('Please write the correct item')
+                x=x.title()
+        a=invent[x]['Price']
+        print('Current price is ',a)
+        upd_pri=float(input('New Updated price : '))
+        q={"Price":upd_pri}
+        invent[x].update(q)
+
+        return print(f'The price of {x} has been updated succesfully')
 
 
