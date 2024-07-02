@@ -253,6 +253,7 @@ def main():
                 display_inventory()
             if customer_select==6:
                 print('\033[1mTHANKS FOR CHOOSING OUR SHOP\033[0m')
+                print('\033[1mGood Bye !\033[0m')
                 exit()
            
         except ValueError:
