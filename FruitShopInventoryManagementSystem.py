@@ -236,11 +236,25 @@ def main():
     print('➡️',' If you like to update the stock count for an item. Press "4"')
     print()
     print('➡️',' To see your current Inventory Stock. Press "5"')
+    print('➡️',' In order to exit. Press "6"')
     while(True):
         try:
             customer_select=int(input('Please tell us what would you like to do '))
             print()
-            break
+            if customer_select==1:
+                add_item()
+            if customer_select==2:
+                buy_item()
+            if customer_select==3:
+                change_price()
+            if customer_select==4:
+                update_inventory()
+            if customer_select==5:
+                display_inventory()
+            if customer_select==6:
+                print('\033[1mTHANKS FOR CHOOSING OUR SHOP\033[0m')
+                exit()
+           
         except ValueError:
             print("Input does not seems like number. Please enter number from 1 to 5.")
             z=input('If you want to exit please write "exit" or to continue press "enter" button ')
@@ -250,18 +264,12 @@ def main():
             else:
                 print()
                 continue
+            
 
 
-    if customer_select==1:
-        add_item()
-    if customer_select==2:
-        buy_item()
-    if customer_select==3:
-        change_price()
-    if customer_select==4:
-        update_inventory()
-    if customer_select==5:
-        display_inventory()
-    print('Thanks')
+    
+   
 
+
+main()
 
